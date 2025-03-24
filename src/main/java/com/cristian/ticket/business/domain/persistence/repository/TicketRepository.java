@@ -15,4 +15,6 @@ public interface TicketRepository extends JpaRepository<TicketEntity, Long> {
 
     @Query("SELECT t FROM TicketEntity t WHERE (:usuarioId IS NULL OR t.usuarioId = :usuarioId) AND (:status IS NULL OR t.status = :status)")
     List<TicketEntity> findByUsuarioIdOrStatus(@Param("usuarioId") Long usuarioId, @Param("status") Status status);
+
+    List<TicketEntity> findByUsuarioId(Long usuarioId);
 }

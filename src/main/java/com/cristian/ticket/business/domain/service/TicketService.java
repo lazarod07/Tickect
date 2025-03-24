@@ -8,16 +8,16 @@ import com.cristian.ticket.business.domain.util.Status;
 
 public interface TicketService {
 
-    TicketDto crearTicket(TicketBaseDto ticketBaseDto);
+    TicketDto crearTicket(Long usuarioId, TicketBaseDto ticketBaseDto);
 
-    TicketDto actualizarTicket(Long id, TicketBaseDto ticketBaseDto, TicketDto ticketDto);
+    TicketDto actualizarTicket(Long usuarioId, Long id, TicketBaseDto ticketBaseDto, TicketDto ticketDto);
 
     TicketDto obtenerTicket(Long id);
 
-    void eliminarTicket(Long id);
+    void eliminarTicket(Long usuarioId, Long id);
 
     List<TicketDto> obtenerTickets(Integer pageNo, Integer pageSize);
 
-    List<TicketDto> obtenerPorUsuarioOStatus(Long usuarioId, Status status);
+    List<TicketDto> obtenerPorUsuarioYStatus(Long usuarioId, Status status);
     
 }

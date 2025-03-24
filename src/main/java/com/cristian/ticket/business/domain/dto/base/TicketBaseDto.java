@@ -4,25 +4,28 @@ import java.io.Serializable;
 
 import com.cristian.ticket.business.domain.util.Status;
 
-import jakarta.validation.constraints.Max;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+@Schema(description = "Datos del ticket")
 @Data
 public class TicketBaseDto implements Serializable {
 
-    @NotBlank(message = "El campo descripcion no puede estar vacio")
-    @NotNull(message = "El campo descripcion no puede ser nulo")
-    @Max(value = 500, message = "El campo descripcion no puede tener mas de 500 caracteres")
+    @Schema(description = "Descripción del ticket")
+    @NotBlank(message = "Parametros invalidos")
+    @NotNull(message = "Parametros invalidos")
+    @Size(max = 500, message = "Parametros invalidos")
     private String descripcion;
 
-    @NotBlank(message = "El campo usuarioId no puede estar vacio")
-    @NotNull(message = "El campo usuarioId no puede ser nulo")
+    @Schema(description = "Identificador del usuario del ticket")
+    @NotNull(message = "Parametros invalidos")
     private Long usuarioId;
 
-    @NotBlank(message = "El campo status no puede estar vacio")
-    @NotNull(message = "El campo status no puede ser nulo")
+    @Schema(description = "Status del ticket")
+    @NotNull(message = "Parametros invalidos")
     private Status status;
-    
+
 }

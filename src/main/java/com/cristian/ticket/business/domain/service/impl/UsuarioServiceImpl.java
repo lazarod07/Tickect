@@ -38,9 +38,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         UsuarioDto usuarioDto = usuarioBaseMapper.toUsuarioDto(usuarioBaseDto);
         usuarioDto.setId(id);
         usuarioDto.setFechaCreacion(usuarioDtoGuardado.getFechaCreacion());
-        System.out.println(usuarioDto.getFechaCreacion());
         UsuarioEntity usuarioEntity = usuarioRepository.save(usuarioMapper.toUsuarioEntity(usuarioDto));
-        System.out.println(usuarioEntity.getFechaCreacion());
         return usuarioEntity != null ? usuarioMapper.toUsuarioDto(usuarioEntity) : null;
     }
 
